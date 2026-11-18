@@ -1,0 +1,20 @@
+name: StremioWeb
+options:
+  bundleIdPrefix: cc.loc.8799005
+  deploymentTarget:
+    iOS: "16.0"
+  xcodeVersion: "16.0"
+targets:
+  StremioWeb:
+    type: application
+    platform: iOS
+    sources:
+      - path: StremioWeb
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: cc.loc.8799005.stremio-web
+        PRODUCT_NAME: StremioWeb
+        TARGETED_DEVICE_FAMILY: "1"
+        SWIFT_VERSION: "5.0"
+        INFOPLIST_FILE: StremioWeb/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
