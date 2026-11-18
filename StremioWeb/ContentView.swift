@@ -4,7 +4,7 @@ import WebKit
 // Stremio 官方网页版
 let serverURL = "https://web.stremio.com"
 
-class WebViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDelegate {
+class WebViewModel: NSObject, ObservableObject, WKNavigationDelegate {
     @Published var isLoading = true
     @Published var loadFailed = false
     @Published var reloadToken = 0
@@ -25,13 +25,6 @@ class WebViewModel: NSObject, ObservableObject, WKNavigationDelegate, WKUIDelega
         loadFailed = true
     }
 
-    // 新窗口链接（target=_blank）在同一个 WebView 里打开，不让点着没反应
-    func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-        if let url = navigationAction.request.url {
-            webView.load(URLRequest(url: url))
-        }
-        return nil
-    }
 }
 
 struct WebView: UIViewRepresentable {
@@ -47,7 +40,6 @@ struct WebView: UIViewRepresentable {
         config.defaultWebpagePreferences.allowsContentJavaScript = true
         let wv = WKWebView(frame: .zero, configuration: config)
         wv.navigationDelegate = context.coordinator
-        wv.uiDelegate = context.coordinator
         wv.allowsBackForwardNavigationGestures = true
         wv.isOpaque = false
         wv.backgroundColor = .black
