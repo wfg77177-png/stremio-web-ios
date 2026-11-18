@@ -12,7 +12,7 @@ targets:
       - path: StremioWeb
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: cc.loc.8799005.stremio-web
+        PRODUCT_BUNDLE_IDENTIFIER: cc.loc.8799005.stremioweb
         PRODUCT_NAME: StremioWeb
         TARGETED_DEVICE_FAMILY: "1"
         SWIFT_VERSION: "5.0"
